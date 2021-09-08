@@ -5,7 +5,7 @@ function Footer() {
     return (
         <Center>
             <Box p="10">
-                <Text>Made by Chowdhury Qaizar Jamal ©</Text>
+                <Text>Chowdhury Qaizar Jamal ©</Text>
             </Box>
         </Center>
     );

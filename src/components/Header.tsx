@@ -1,18 +1,26 @@
 import React from "react";
 import ModeButton from "./ModeButton";
-import {Grid, Box, Image, Text, Heading} from "@chakra-ui/react";
+import {Grid, Box, Image, Text, Heading, Center} from "@chakra-ui/react";
 
 function Header() {
     return (
         <div>
-            <Grid templateColumns="repeat(2, 1fr)" gap={6}>
-                <Box p="10" >
-                    <Image src="https://i.ibb.co/4mYvYYB/spacestagram-logo.png" alt="Spacestagram" />
+            <Grid templateColumns="repeat(3, 1fr)" gap={6} margin={10}>
+                <Box p="10" maxW="lg">
+                    {/*<Image src="https://i.ibb.co/4mYvYYB/spacestagram-logo.png" alt="Spacestagram" />*/}
+                    <Center>
+                        <Heading>SPACE</Heading>
+                        <Heading as="i">STAGRAM</Heading>
+                    </Center>
+                    <Center>
+                        <Text>Image-sharing from the final frontier</Text>
+                    </Center>
                 </Box>
-                <Box p="10">
-                        <Heading>Image-sharing from the final frontier</Heading>
-                        <Text>Instagram but with NASA's Astronomy Picture of the Day</Text>
-                        <ModeButton/>
+                <Box p="10" maxW="lg">
+                    <Center><ModeButton/></Center>
+                </Box>
+                <Box p="10" maxW="lg">
+                    <Text>Instagram but with NASA's Astronomy Picture of the Day</Text>
                 </Box>
             </Grid>
         </div>
