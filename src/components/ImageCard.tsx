@@ -22,24 +22,31 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export default function ImageCard() {
+
+interface ImageCardProps{
+    url: string;
+    title: string;
+    explanation: string;
+    date: string;
+}
+
+export default function ImageCard({title, url, explanation, date}:ImageCardProps) {
     const classes = useStyles();
 
     return (
         <Card className={classes.root}>
             <CardHeader
-                title="Shrimp and Chorizo Paella"
-                subheader="September 14, 2016"
+                title={title}
+                subheader={date}
             />
             <CardMedia
                 className={classes.media}
-                image="https://unsplash.com/photos/KsRJfWfgEwY/download?force=true&w=640"
-                title="Paella dish"
+                image={url}
+                title={title}
             />
             <CardContent>
                 <Typography variant="body2" color="textSecondary" component="p">
-                    This impressive paella is a perfect party dish and a fun meal to cook together with your
-                    guests. Add 1 cup of frozen peas along with the mussels, if you like.
+                    {explanation}
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
