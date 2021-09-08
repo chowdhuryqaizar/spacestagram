@@ -24,7 +24,7 @@ function ImageModal({url, title, explanation, date}:ImageModalProps) {
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (
         <>
-            <IconButton aria-label="info" onClick={onOpen} icon={<InfoIcon />}/>
+            <IconButton aria-label="info" onClick={onOpen} icon={<InfoIcon />} size="sm"/>
             <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
                 <ModalContent>
