@@ -4,7 +4,7 @@ import {IconButton} from "@chakra-ui/react";
 import {MoonIcon, SunIcon} from "@chakra-ui/icons";
 
 
-export default function ModeButton() {
+function ModeButton() {
     const {colorMode, toggleColorMode} = useColorMode()
     return (
         <header>
@@ -14,3 +14,5 @@ export default function ModeButton() {
         </header>
     )
 }
+
+export default ModeButton;
