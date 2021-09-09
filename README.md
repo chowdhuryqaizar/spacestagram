@@ -1,6 +1,6 @@
 # SPACE*STAGRAM*
 ### Instagram but with NASA's Astronomy Picture of the Day
-Front End Developer Intern Challenge - Winter 2022
+Shopify Front End Developer Intern Challenge - Winter 2022
 
 
 
