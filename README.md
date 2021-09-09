@@ -1,7 +1,8 @@
-# SPACE*STAGRAM* 🪐
+# [SPACE*STAGRAM* 🪐](https://adoring-keller-d653a6.netlify.app/)
 ### Instagram but with NASA's Astronomy Picture of the Day
 Shopify Front End Developer Intern Challenge - Winter 2022
 
+Check out the application on the [Hosted Website](https://adoring-keller-d653a6.netlify.app/)
 
 ### Features
 
