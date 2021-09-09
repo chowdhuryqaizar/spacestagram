@@ -1,13 +1,12 @@
 import React from "react";
 import ModeButton from "./ModeButton";
-import {Grid, Box, Image, Text, Heading, Center} from "@chakra-ui/react";
+import {Grid, Box, Text, Heading, Center} from "@chakra-ui/react";
 
 function Header() {
     return (
         <div>
             <Grid templateColumns="repeat(3, 1fr)" gap={6} margin={10}>
                 <Box p="10" maxW="lg">
-                    {/*<Image src="https://i.ibb.co/4mYvYYB/spacestagram-logo.png" alt="Spacestagram" />*/}
                     <Center>
                         <Heading>SPACE</Heading>
                         <Heading as="i">STAGRAM</Heading>

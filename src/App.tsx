@@ -10,8 +10,8 @@ import {Spinner, Center} from "@chakra-ui/react";
 function App() {
     const [images, setImages] = useState([]);
     const [loading, setLoading] = useState(true);
-    const startDate = "2021-08-20";
-    const endDate = new Date().toISOString().slice(0, 10);
+    const startDate = "2021-01-20";
+    const endDate = "2021-01-30";
 
     useEffect(()=>{
         axios.get("https://api.nasa.gov/planetary/apod?api_key=DLysHce6fEfIzM4lW1v7cKrhDVKfUDQil6MB7gkl&start_date=" + startDate + "&end_date=" + endDate)

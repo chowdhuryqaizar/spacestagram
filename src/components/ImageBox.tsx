@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import {Box, Image, Center, Spinner, IconButton, useToast, Grid} from "@chakra-ui/react";
 import ImageModal from "./ImageModal";
 import {LinkIcon} from "@chakra-ui/icons";
