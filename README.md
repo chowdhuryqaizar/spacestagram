@@ -10,7 +10,6 @@ Shopify Front End Developer Intern Challenge - Winter 2022
 * Spinner to represent the loading state of API
 * Shareable links for each photo
 * Real-time Toast notifications to notify link copied to clipboard
-* Fetches images from ***today's*** date
 
 
 ### Demo
