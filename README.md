@@ -3,26 +3,28 @@
 Shopify Front End Developer Intern Challenge - Winter 2022
 
 
-
 ### Features
-* Save likes if the user leaves or reloads the page
-* Animate the “like” action (might we suggest a heart?)
-* Add a loading state while we wait for NASA’s API to return data
-* Create shareable links for each image
-* Add a date-picker to be able to browse photos starting from a specific date
+
+* Dynamic modal viewer for each photo to display details of each photo
+* Save likes through `localStorage`
+* Spinner to represent the loading state of API
+* Shareable links for each photo
+* Real-time Toast notifications to notify link copied to clipboard
+* Fetches images from ***today's*** date
 
 
-### Working Demo
+### Demo
 
 ### Technologies
-* [TypeScript](https://www.typescriptlang.org/)
-* React
-* [Axios](https://www.npmjs.com/package/axios)
-* [Chakra UI](https://chakra-ui.com/)
+* React and TypeScript
+* [Axios](https://www.npmjs.com/package/axios) to connect to the API
+* [Chakra UI](https://chakra-ui.com/) for theme and UI styling
+* Netlify for hosting
 
 
 
-### To Run Locally
+### Installation
+To run the project locally, run the following commands
 ```javascript
 git clone https://github.com/chowdhuryqaizar/spacestagram.git
 npm install
