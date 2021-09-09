@@ -2,42 +2,34 @@ import React, {useEffect, useState} from 'react';
 import './App.css';
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import ImageCard from "./components/ImageCard";
-import ImageBox from "./components/ImageBox";
+import axios from "axios";
 import ModalGrid from "./components/ModalGrid";
-
-
-const url =
-    "https://api.nasa.gov/planetary/apod?api_key=DLysHce6fEfIzM4lW1v7cKrhDVKfUDQil6MB7gkl&count=10";
-
-const getTracks = async () => {
-    const resp = await fetch(url);
-    const data = await resp.json();
-    return data;
-};
+import {Spinner, Center} from "@chakra-ui/react";
 
 
 function App() {
     const [images, setImages] = useState([]);
     const [loading, setLoading] = useState(true);
+    const startDate = "2021-08-20";
+    const endDate = new Date().toISOString().slice(0, 10);
 
-    const handleGetTracks = () => {
-        setLoading(true);
-        getTracks().then((images) => {
-            setImages(images);
-            setLoading(false);
-        });
-    };
-
-    useEffect(() => {
-        handleGetTracks();
-        // eslint-disable-next-line
-    }, []);
+    useEffect(()=>{
+        axios.get("https://api.nasa.gov/planetary/apod?api_key=DLysHce6fEfIzM4lW1v7cKrhDVKfUDQil6MB7gkl&start_date=" + startDate + "&end_date=" + endDate)
+            .then(res =>{
+                console.log(res)
+                res.data.reverse()
+                setImages(res.data)
+                setLoading(false);
+            })
+            .catch(err=>{
+                console.log(err)
+            })
+    })
 
     return (
         <div>
             <Header/>
-            {/*{!loading && <ImageBox url={images[0]['url']} date={images[0]['date']} title={images[0]['title']} explanation={images[0]['explanation']}/>}*/}
+            {loading && <Center><Spinner size="xl"/></Center>}
             {!loading && <ModalGrid images={images}/>}
             <Footer/>
         </div>

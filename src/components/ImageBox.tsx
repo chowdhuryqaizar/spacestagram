@@ -1,5 +1,5 @@
-import React from "react";
-import {Box, Image, Center, Spinner, IconButton, useToast} from "@chakra-ui/react";
+import React, {useState} from "react";
+import {Box, Image, Center, Spinner, IconButton, useToast, Grid} from "@chakra-ui/react";
 import ImageModal from "./ImageModal";
 import {LinkIcon} from "@chakra-ui/icons";
 import FavoriteIcon from "@material-ui/icons/Favorite";
@@ -12,12 +12,28 @@ interface ImageBoxProps{
 }
 
 function ImageBox({url, title, explanation, date}:ImageBoxProps) {
+
+    const [liked, setLiked] = useStickyState(false, title);
+
+    function useStickyState(defaultValue:boolean, key:string){
+        const [value, setValue] = React.useState(() => {
+            const stickyValue = window.localStorage.getItem(key);
+            return stickyValue !== null
+                ? JSON.parse(stickyValue)
+                : defaultValue;
+        });
+        React.useEffect(() => {
+            window.localStorage.setItem(key, JSON.stringify(value));
+        }, [key, value]);
+        return [value, setValue];
+    }
+
     const toast = useToast();
     function onCopy(){
         toast.closeAll();
         toast({
-                title: "Copied " + title,
-                description: "Image link copied to clipboard",
+                title: "Image Link Copied to Clipboard!",
+                description: "Copied " + title,
                 status: "info",
                 duration: 5000,
                 isClosable: true,
@@ -26,7 +42,12 @@ function ImageBox({url, title, explanation, date}:ImageBoxProps) {
     }
 
     function onLike(){
-        console.log("liked");
+        if(liked){
+            setLiked(false);
+        }
+        else{
+            setLiked(true);
+        }
     }
 
     return (
@@ -54,10 +75,12 @@ function ImageBox({url, title, explanation, date}:ImageBoxProps) {
                     <Box as="span" color="gray.600" fontSize="sm">
                         {explanation.substr(0,250).concat('...')}
                     </Box>
-                    <Box marginTop="5%">
-                        <ImageModal url={url} title={title} explanation={explanation} date={date}/>
-                        <IconButton aria-label="copy" onClick={onCopy} icon={<LinkIcon/>} size="sm"/>
-                        <IconButton aria-label="copy" onClick={onLike} icon={<FavoriteIcon/>} size="sm"/>
+                    <Box marginTop="10%">
+                        <Grid templateColumns="repeat(3, 1fr)" gap={6}>
+                            <Center><ImageModal url={url} title={title} explanation={explanation} date={date}/></Center>
+                        <Center><IconButton aria-label="copy" onClick={onCopy} icon={<LinkIcon/>} size="sm" maxW="5px"/></Center>
+                        <Center><IconButton aria-label="copy" onClick={onLike} icon={<FavoriteIcon/>} color={liked === true ? "pink" : ""} size="sm" maxW="5px"/></Center>
+                        </Grid>
                     </Box>
                 </Box>
             </Box>
