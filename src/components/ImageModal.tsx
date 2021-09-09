@@ -1,17 +1,15 @@
 import React from "react";
 import {
     useDisclosure,
-    Button,
     Modal,
     ModalOverlay,
     ModalContent,
     ModalHeader,
-    ModalCloseButton,
     ModalBody,
     ModalFooter,
-    Text, Image, Center, IconButton, Box
+    Image, Center, IconButton, Box
 } from "@chakra-ui/react";
-import {CloseIcon, InfoIcon, SearchIcon} from "@chakra-ui/icons";
+import {CloseIcon, InfoIcon} from "@chakra-ui/icons";
 
 interface ImageModalProps{
     url: string;

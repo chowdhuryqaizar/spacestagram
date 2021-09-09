@@ -1,6 +1,8 @@
 import React from "react";
-import {Box, Image, Center} from "@chakra-ui/react";
+import {Box, Image, Center, Spinner, IconButton, useToast} from "@chakra-ui/react";
 import ImageModal from "./ImageModal";
+import {LinkIcon} from "@chakra-ui/icons";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 
 interface ImageBoxProps{
     url: string;
@@ -10,9 +12,26 @@ interface ImageBoxProps{
 }
 
 function ImageBox({url, title, explanation, date}:ImageBoxProps) {
+    const toast = useToast();
+    function onCopy(){
+        toast.closeAll();
+        toast({
+                title: "Copied " + title,
+                description: "Image link copied to clipboard",
+                status: "info",
+                duration: 5000,
+                isClosable: true,
+        })
+        navigator.clipboard.writeText(url);
+    }
+
+    function onLike(){
+        console.log("liked");
+    }
+
     return (
         <Box maxW="lg" borderWidth="1px" borderRadius="lg" overflow="hidden">
-            <Center><Image maxH="300px" src={url} alt={title} marginTop="5%"/></Center>
+            <Center><Image maxH="300px" src={url} alt={title} padding="3%" fallback={<Spinner margin="10%" size="lg"/>}/></Center>
             <Box p="10">
                 <Box
                     mt="1"
@@ -26,7 +45,7 @@ function ImageBox({url, title, explanation, date}:ImageBoxProps) {
                     mt="1"
                     as="h4"
                     lineHeight="tight"
-                    color="gray.600"
+                    color="gray.500"
                     fontSize="sm"
                 >
                     {date}
@@ -37,6 +56,8 @@ function ImageBox({url, title, explanation, date}:ImageBoxProps) {
                     </Box>
                     <Box>
                         <ImageModal url={url} title={title} explanation={explanation} date={date}/>
+                        <IconButton aria-label="copy" onClick={onCopy} icon={<LinkIcon/>} size="sm"/>
+                        <IconButton aria-label="copy" onClick={onLike} icon={<FavoriteIcon/>} size="sm"/>
                     </Box>
                 </Box>
             </Box>
