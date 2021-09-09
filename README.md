@@ -6,6 +6,7 @@ Check out the application on the [Hosted Website](https://adoring-keller-d653a6.
 
 ### Features
 
+* Supports Dark Mode and Light Mode
 * Dynamic modal viewer for each photo to display details of each photo
 * Save likes through `localStorage`
 * Spinner to represent the loading state of API
