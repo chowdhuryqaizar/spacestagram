@@ -14,6 +14,7 @@ Shopify Front End Developer Intern Challenge - Winter 2022
 
 
 ### Demo
+![](https://media.giphy.com/media/zVsbBQLQmc6J4g4NMM/giphy.gif?cid=790b76113ff1d22224521a69c5d8b53011d675bdec77096e&rid=giphy.gif&ct=g)
 
 ### Technologies
 * React and TypeScript
