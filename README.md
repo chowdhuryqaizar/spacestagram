@@ -1,4 +1,4 @@
-# SPACE*STAGRAM*
+# SPACE*STAGRAM* 🪐
 ### Instagram but with NASA's Astronomy Picture of the Day
 Shopify Front End Developer Intern Challenge - Winter 2022
 
