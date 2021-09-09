@@ -54,7 +54,7 @@ function ImageBox({url, title, explanation, date}:ImageBoxProps) {
                     <Box as="span" color="gray.600" fontSize="sm">
                         {explanation.substr(0,250).concat('...')}
                     </Box>
-                    <Box>
+                    <Box marginTop="5%">
                         <ImageModal url={url} title={title} explanation={explanation} date={date}/>
                         <IconButton aria-label="copy" onClick={onCopy} icon={<LinkIcon/>} size="sm"/>
                         <IconButton aria-label="copy" onClick={onLike} icon={<FavoriteIcon/>} size="sm"/>
